@@ -59,6 +59,21 @@ namespace PassQuality {
         		return 2; // PassList not found.
     		}
 	}
+	
+	int PassSecurity2(std::string str) {
+		std::string line;
+    		std::ifstream readfile("passlist2.txt");
+    		if(readfile.is_open()) {
+        		while (std::getline(readfile, line)) {
+        			if(line == str) {
+        				return 1; // This password is unsecure!
+        			}
+        		}
+        		readfile.close();
+    		} else {
+        		return 2; // PassList not found.
+    		}
+	}
 }
 
 
