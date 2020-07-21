@@ -14,11 +14,11 @@ int main() {
      		std::cout << "Not found, yey! Now, Running PassSecurity2.";
      		quality = PassQuality::PassSecurity2(str);
      		if(quality == 1) {
-     			std::cout << "Found! You should change this password."
+     			std::cout << "Found! You should change this password.";
      		} else if(quality == 2) {
      			std::cout << "PassList2 not found.";
      		} else {
-     			std::cout << "Not found, yey! Your password not found from both of them.";
+     			std::cout << "\nNot found, yey! Your password not found from both of them.";
      		}
      	}
      	std::cout << "\n";
