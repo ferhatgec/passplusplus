@@ -58,6 +58,7 @@ namespace PassQuality {
     		} else {
         		return 2; // PassList not found.
     		}
+    		return 0;
 	}
 	
 	int PassSecurity2(std::string str) {
@@ -73,6 +74,23 @@ namespace PassQuality {
     		} else {
         		return 2; // PassList not found.
     		}
+    		return 0;
+	}
+	
+	int PassSecurity3(std::string str) {
+		std::string line;
+    		std::ifstream readfile("passlist3.txt");
+    		if(readfile.is_open()) {
+        		while (std::getline(readfile, line)) {
+        			if(line == str) {
+        				return 1; // This password is unsecure!
+        			}
+        		}
+        		readfile.close();
+    		} else {
+        		return 2; // PassList not found.
+    		}
+    		return 0;
 	}
 }
 

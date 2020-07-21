@@ -11,17 +11,24 @@ int main() {
      	} else if(quality == 2) {
      		std::cout << "PassList not found.";
      	} else {
-     		std::cout << "Not found, yey! Now, Running PassSecurity2.";
+     		std::cout << "Not found, yey!.\nNow, Running PassSecurity2.";
      		quality = PassQuality::PassSecurity2(str);
      		if(quality == 1) {
      			std::cout << "Found! You should change this password.";
      		} else if(quality == 2) {
      			std::cout << "PassList2 not found.";
      		} else {
-     			std::cout << "\nNot found, yey! Your password not found from both of them.";
+     			std::cout << "\nNow, Running PassSecurity2.\n";
+     			quality = PassQuality::PassSecurity3(str);
+     			if(quality == 1) {
+     				std::cout << "Found! You should change this password.";
+     			} else if(quality == 2) {
+     				std::cout << "PassList3 not found.";
+     			} else {
+     				std::cout << "Not found, yey!\nYour password not found from all three passlist.";
+     			}
      		}
      	}
      	std::cout << "\n";
      	return 0;
 }
-
