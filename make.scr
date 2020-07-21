@@ -1,3 +1,4 @@
 system("g++ pass_security.cpp -o security");
+system("g++ pass_security2.cpp -o security2");
 system("g++ pass_quality.cpp -o quality");
 return

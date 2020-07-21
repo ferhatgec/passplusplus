@@ -26,7 +26,7 @@ namespace PassQuality {
   		std::string current_working_dir(buff);
   		return current_working_dir;
 	}
-	
+
 	int Quality(std::string str) {
 		int l_case=0, u_case=0, digit=0, special=0;
     		int l=str.length(),i;
@@ -38,21 +38,21 @@ namespace PassQuality {
         		if(isdigit(str[i]))
           			digit=1;
         		if(!isalpha(str[i]) && !isdigit(str[i]))
-          			special=1;  
+          			special=1;
     		}
-      
+
     		if(l_case && u_case && digit && special && l>=8)
     			return 1; // Strong Password
     		else if((l_case+u_case+digit+special>=3) && l>=6)
     			return 2; // Moderate Password
     		else
         		return 3; // Weak Password
-        	
+
 		return 0;
 	}
-	
+
 	int PassSecurity(std::string str) {
-		std::string line;
+				std::string line;
     		std::ifstream readfile("passlist.txt");
     		if(readfile.is_open()) {
         		while (std::getline(readfile, line)) {
@@ -66,9 +66,9 @@ namespace PassQuality {
     		}
     		return 0;
 	}
-	
+
 	int PassSecurity2(std::string str) {
-		std::string line;
+				std::string line;
     		std::ifstream readfile("passlist2.txt");
     		if(readfile.is_open()) {
         		while (std::getline(readfile, line)) {
@@ -82,7 +82,7 @@ namespace PassQuality {
     		}
     		return 0;
 	}
-	
+
 	int PassSecurity3(std::string str) {
 		std::string line;
     		std::ifstream readfile("passlist3.txt");
@@ -98,6 +98,27 @@ namespace PassQuality {
     		}
     		return 0;
 	}
+
+	int TestSecurity(std::string str) {
+  		int quality = PassSecurity(str);
+		if(quality == 0) {
+			quality = PassSecurity2(str);
+			if(quality == 0) {
+			  	quality = PassSecurity3(str);
+				if(quality == 0) {
+					return 0; // Not found [0]
+				} else {
+					return 3; // Found [3]
+				}
+			} else {
+				return 2; // Found [2]
+		}
+		} else {
+			return 1; // Found [1]
+		}
+		return 10; // Null [10]
+	}
+
 }
 
 
