@@ -1,0 +1,3 @@
+system("g++ pass_security.cpp -o security");
+system("g++ pass_quality.cpp -o quality");
+return
