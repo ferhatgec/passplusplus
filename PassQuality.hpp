@@ -1,3 +1,9 @@
+/*# MIT License
+#
+# Copyright (c) 2020 Ferhat Geçdoğan All Rights Reserved.
+# Distributed under the terms of the MIT License.
+#*/
+
 #ifndef PASS_QUALITY_HPP
 #define PASS_QUALITY_HPP
 
